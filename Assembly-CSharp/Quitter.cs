@@ -22,7 +22,7 @@ public class Quitter : MonoBehaviour
 	// Token: 0x060006D7 RID: 1751 RVA: 0x0002C410 File Offset: 0x0002A610
 	private void Update()
 	{
-		Application.loadedLevelName == "Loader 3";
+		// Application.loadedLevelName == "Loader 3";
 		if (Input.GetKey(this.quitKey))
 		{
 			this._guiText.enabled = true;

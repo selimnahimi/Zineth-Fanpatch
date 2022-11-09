@@ -237,7 +237,7 @@ namespace Twitter
 			if (res == null)
 			{
 				Debug.LogWarning("Hey! The twitter response is null!");
-				return 0;
+				yield return 0;
 			}
 			if (res.status != 200)
 			{
@@ -275,7 +275,7 @@ namespace Twitter
 			if (res == null)
 			{
 				Debug.LogWarning("Hey! The twitter response is null!");
-				return 0;
+				yield return 0;
 			}
 			if (res.status != 200)
 			{
@@ -339,7 +339,7 @@ namespace Twitter
 			if (res == null)
 			{
 				Debug.LogWarning("Hey! The twitter response is null!");
-				return 0;
+				yield return 0;
 			}
 			if (res.status != 200)
 			{
