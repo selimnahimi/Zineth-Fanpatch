@@ -1,0 +1,34 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 100
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": 67
+  },
+  "m_Name": "",
+  "spline": {
+    "m_FileID": 0,
+    "m_PathID": 370
+  },
+  "uMode": 0,
+  "deltaSeconds": 0.0,
+  "deltaFrames": 0,
+  "baseMesh": {
+    "m_FileID": 1,
+    "m_PathID": 10202
+  },
+  "segmentCount": 100,
+  "xyScale": {
+    "x": 0.4,
+    "y": 0.4
+  },
+  "uvScale": {
+    "x": 1.0,
+    "y": 1.0
+  },
+  "uvMode": 0,
+  "splineSegment": -1
+}

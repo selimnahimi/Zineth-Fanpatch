@@ -1,0 +1,125 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 171
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": 66
+  },
+  "m_Name": "",
+  "guiSkin": {
+    "m_FileID": 0,
+    "m_PathID": 355
+  },
+  "createIcon": {
+    "m_FileID": 0,
+    "m_PathID": 45
+  },
+  "erodeIcon": {
+    "m_FileID": 0,
+    "m_PathID": 28
+  },
+  "textureIcon": {
+    "m_FileID": 0,
+    "m_PathID": 23
+  },
+  "mooreIcon": {
+    "m_FileID": 0,
+    "m_PathID": 10
+  },
+  "vonNeumannIcon": {
+    "m_FileID": 0,
+    "m_PathID": 22
+  },
+  "mountainsIcon": {
+    "m_FileID": 0,
+    "m_PathID": 39
+  },
+  "hillsIcon": {
+    "m_FileID": 0,
+    "m_PathID": 25
+  },
+  "plateausIcon": {
+    "m_FileID": 0,
+    "m_PathID": 43
+  },
+  "defaultTexture": {
+    "m_FileID": 0,
+    "m_PathID": 11
+  },
+  "toolModeInt": 0,
+  "erosionTypeInt": 0,
+  "generatorTypeInt": 2,
+  "isBrushOn": 0,
+  "isBrushHidden": 0,
+  "isBrushPainting": 0,
+  "brushPosition": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "brushSize": 50.0,
+  "brushOpacity": 1.0,
+  "brushSoftness": 0.5,
+  "neighbourhoodInt": 0,
+  "useDifferenceMaps": 1,
+  "thermalIterations": 25,
+  "thermalMinSlope": 1.0,
+  "thermalFalloff": 0.5,
+  "hydraulicTypeInt": 0,
+  "hydraulicType": 0,
+  "hydraulicIterations": 25,
+  "hydraulicMaxSlope": 60.0,
+  "hydraulicFalloff": 0.5,
+  "hydraulicRainfall": 0.01,
+  "hydraulicEvaporation": 0.5,
+  "hydraulicSedimentSolubility": 0.01,
+  "hydraulicSedimentSaturation": 0.1,
+  "hydraulicVelocityRainfall": 0.01,
+  "hydraulicVelocityEvaporation": 0.5,
+  "hydraulicVelocitySedimentSolubility": 0.01,
+  "hydraulicVelocitySedimentSaturation": 0.1,
+  "hydraulicVelocity": 20.0,
+  "hydraulicMomentum": 1.0,
+  "hydraulicEntropy": 0.0,
+  "hydraulicDowncutting": 0.1,
+  "tidalIterations": 25,
+  "tidalSeaLevel": 50.0,
+  "tidalRangeAmount": 5.0,
+  "tidalCliffLimit": 60.0,
+  "windIterations": 25,
+  "windDirection": 0.0,
+  "windForce": 0.5,
+  "windLift": 0.01,
+  "windGravity": 0.5,
+  "windCapacity": 0.01,
+  "windEntropy": 0.1,
+  "windSmoothing": 0.25,
+  "tempTexture": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "slopeBlendMinAngle": 60.0,
+  "slopeBlendMaxAngle": 75.0,
+  "heightBlendPoints": [],
+  "gradientStyles": [],
+  "voronoiTypeInt": 0,
+  "voronoiType": 0,
+  "voronoiCells": 16,
+  "voronoiFeatures": 1.0,
+  "voronoiScale": 1.0,
+  "voronoiBlend": 1.0,
+  "diamondSquareDelta": 0.5,
+  "diamondSquareBlend": 1.0,
+  "perlinFrequency": 5,
+  "perlinAmplitude": 0.175,
+  "perlinOctaves": 3,
+  "perlinBlend": 1.0,
+  "smoothBlend": 1.0,
+  "smoothIterations": 1,
+  "normaliseMin": 0.0,
+  "normaliseMax": 1.0,
+  "normaliseBlend": 1.0
+}
