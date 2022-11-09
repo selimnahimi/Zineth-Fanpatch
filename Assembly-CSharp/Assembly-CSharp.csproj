@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{467A75E1-6190-45F2-9FDA-FE228D7C628A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Twitter</RootNamespace>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="HTTP">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\HTTP.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\XInputDotNetPure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessTokenCallback.cs" />
+    <Compile Include="AccessTokenResponse.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="ActivateTrigger.cs" />
+    <Compile Include="API.cs" />
+    <Compile Include="Arrow.cs" />
+    <Compile Include="BigHawkBehavior.cs" />
+    <Compile Include="BobAndSpin.cs" />
+    <Compile Include="BoundsHolder.cs" />
+    <Compile Include="CactusBehavior.cs" />
+    <Compile Include="CactusPlacer.cs" />
+    <Compile Include="CameraFacingBillboard.cs" />
+    <Compile Include="Capsule.cs" />
+    <Compile Include="CollisionChecker.cs" />
+    <Compile Include="CombineChildren.cs" />
+    <Compile Include="Critter.cs" />
+    <Compile Include="DArtControl.cs" />
+    <Compile Include="DebugPoint.cs" />
+    <Compile Include="DetailZone.cs" />
+    <Compile Include="DLCControl.cs" />
+    <Compile Include="DoCommandTrigger.cs" />
+    <Compile Include="DoGrindParticles.cs" />
+    <Compile Include="DoorScript.cs" />
+    <Compile Include="DoSandParticles.cs" />
+    <Compile Include="EndLevel.cs" />
+    <Compile Include="GetMentionsCallback.cs" />
+    <Compile Include="HawkBehavior.cs" />
+    <Compile Include="HawkZoneOuterScript.cs" />
+    <Compile Include="HawkZoneScript.cs" />
+    <Compile Include="ImageDownloadHelper.cs" />
+    <Compile Include="MailController.cs" />
+    <Compile Include="MeshCombineUtility.cs" />
+    <Compile Include="MissionController.cs" />
+    <Compile Include="MissionDLC.cs" />
+    <Compile Include="MissionGUIText.cs" />
+    <Compile Include="MissionInfo.cs" />
+    <Compile Include="MissionLoadControl.cs" />
+    <Compile Include="MissionObject.cs" />
+    <Compile Include="MissionObjective.cs" />
+    <Compile Include="MissionObjectiveAirtime.cs" />
+    <Compile Include="MissionObjectiveCactusBreaks.cs" />
+    <Compile Include="MissionObjectiveCheckStat.cs" />
+    <Compile Include="MissionObjectiveNoGround.cs" />
+    <Compile Include="MissionObjectiveSpeed.cs" />
+    <Compile Include="MissionObjectiveTimed.cs" />
+    <Compile Include="MissionObjectiveTransformClose.cs" />
+    <Compile Include="MonsterAI.cs" />
+    <Compile Include="MonsterStat.cs" />
+    <Compile Include="MonsterTester.cs" />
+    <Compile Include="MonsterTraits.cs" />
+    <Compile Include="MonsterType.cs" />
+    <Compile Include="moonbox.cs" />
+    <Compile Include="MusicManager.cs" />
+    <Compile Include="NetCodes.cs" />
+    <Compile Include="NetIcon.cs" />
+    <Compile Include="NetPlayer.cs" />
+    <Compile Include="Networking.cs" />
+    <Compile Include="NewCamera.cs" />
+    <Compile Include="norewind.cs" />
+    <Compile Include="norewind1.cs" />
+    <Compile Include="NPCBehavior.cs" />
+    <Compile Include="NPCTrainer.cs" />
+    <Compile Include="OpenDoor.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="PhoneAudioController.cs" />
+    <Compile Include="PhoneButton.cs" />
+    <Compile Include="PhoneButtonBgColor.cs" />
+    <Compile Include="PhoneButtonCycle.cs" />
+    <Compile Include="PhoneButtonMonsterDebug.cs" />
+    <Compile Include="PhoneButtonMusicDebug.cs" />
+    <Compile Include="PhoneButtonSlider.cs" />
+    <Compile Include="PhoneCamControl.cs" />
+    <Compile Include="PhoneChatMenu.cs" />
+    <Compile Include="PhoneCloseZoneScript.cs" />
+    <Compile Include="PhoneColorPallete.cs" />
+    <Compile Include="PhoneController.cs" />
+    <Compile Include="PhoneEffects.cs" />
+    <Compile Include="PhoneElement.cs" />
+    <Compile Include="PhoneInput.cs" />
+    <Compile Include="PhoneInterface.cs" />
+    <Compile Include="PhoneJail.cs" />
+    <Compile Include="PhoneLabel.cs" />
+    <Compile Include="PhoneLabelCustomTwitter.cs" />
+    <Compile Include="PhoneLabelNewBattle.cs" />
+    <Compile Include="PhoneLabelNewMail.cs" />
+    <Compile Include="PhoneLabelNewTweets.cs" />
+    <Compile Include="PhoneLoaderMenu.cs" />
+    <Compile Include="PhoneMail.cs" />
+    <Compile Include="PhoneMailMenu.cs" />
+    <Compile Include="PhoneMailMenuNEW.cs" />
+    <Compile Include="PhoneMainMenu.cs" />
+    <Compile Include="PhoneMakeTweetMenu.cs" />
+    <Compile Include="PhoneMapController.cs" />
+    <Compile Include="PhoneMemory.cs" />
+    <Compile Include="PhoneMenuLine.cs" />
+    <Compile Include="PhoneMissionsMenu.cs" />
+    <Compile Include="PhoneMonster.cs" />
+    <Compile Include="PhoneMonsterMenu.cs" />
+    <Compile Include="PhoneMonsterStatbar.cs" />
+    <Compile Include="PhoneMonsterStatsDisplay.cs" />
+    <Compile Include="PhoneOpenPromp.cs" />
+    <Compile Include="PhoneOverlayMenu.cs" />
+    <Compile Include="PhoneParser.cs" />
+    <Compile Include="PhonePlayerListMenu.cs" />
+    <Compile Include="PhoneResourceController.cs" />
+    <Compile Include="PhoneScreen.cs" />
+    <Compile Include="PhoneSettings.cs" />
+    <Compile Include="PhoneShooterAttack.cs" />
+    <Compile Include="PhoneShooterBullet.cs" />
+    <Compile Include="PhoneShooterController.cs" />
+    <Compile Include="PhoneShooterEnemy.cs" />
+    <Compile Include="PhoneShooterExp.cs" />
+    <Compile Include="PhoneShooterHealthbar.cs" />
+    <Compile Include="PhoneShooterLevel.cs" />
+    <Compile Include="PhoneShooterLevelMenu.cs" />
+    <Compile Include="PhoneShooterMonster.cs" />
+    <Compile Include="PhoneShooterPickup.cs" />
+    <Compile Include="PhoneShooterPlayer.cs" />
+    <Compile Include="PhoneShooterSpawner.cs" />
+    <Compile Include="PhoneSlideshow.cs" />
+    <Compile Include="PhoneTextController.cs" />
+    <Compile Include="PhoneTextInput.cs" />
+    <Compile Include="PhoneTutorialScreen.cs" />
+    <Compile Include="PhoneTweetButton.cs" />
+    <Compile Include="PhoneTweetComposer.cs" />
+    <Compile Include="PhoneTwitterAccountMenu.cs" />
+    <Compile Include="PhoneTwitterMenu.cs" />
+    <Compile Include="PhoneTwitterRegisterMenu.cs" />
+    <Compile Include="PhoneViewController.cs" />
+    <Compile Include="PhoneViewHomeButton.cs" />
+    <Compile Include="PhoneViewOpenButton.cs" />
+    <Compile Include="PhoneZineMenu.cs" />
+    <Compile Include="Phone_MathNumber.cs" />
+    <Compile Include="PlayerMon.cs" />
+    <Compile Include="PlayerTrail.cs" />
+    <Compile Include="PlaytomicController.cs" />
+    <Compile Include="PostTweetCallback.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PyramidScript.cs" />
+    <Compile Include="Quitter.cs" />
+    <Compile Include="RailCamera.cs" />
+    <Compile Include="RequestTokenCallback.cs" />
+    <Compile Include="RequestTokenResponse.cs" />
+    <Compile Include="Rotate.cs" />
+    <Compile Include="SecretObject.cs" />
+    <Compile Include="SoundManager.cs" />
+    <Compile Include="SoundType.cs" />
+    <Compile Include="SpawnPoint.cs" />
+    <Compile Include="SpawnPointScript.cs" />
+    <Compile Include="Spline.cs" />
+    <Compile Include="SplineAnimator.cs" />
+    <Compile Include="SplineAnimatorCamera.cs" />
+    <Compile Include="SplineAnimatorClosestPoint.cs" />
+    <Compile Include="SplineAnimatorGravity.cs" />
+    <Compile Include="SplineControlNode.cs" />
+    <Compile Include="SplineGrinding.cs" />
+    <Compile Include="SplineMesh.cs" />
+    <Compile Include="SplineNode.cs" />
+    <Compile Include="SplineSegment.cs" />
+    <Compile Include="SpriteAnimation.cs" />
+    <Compile Include="SpriteController.cs" />
+    <Compile Include="SpriteFrame.cs" />
+    <Compile Include="SpritePlayer.cs" />
+    <Compile Include="SpriteSet.cs" />
+    <Compile Include="stateEnum.cs" />
+    <Compile Include="STATUS.cs" />
+    <Compile Include="TakeScreenShot.cs" />
+    <Compile Include="TerrainToolkit.cs" />
+    <Compile Include="TextureResizer.cs" />
+    <Compile Include="ThrownZine.cs" />
+    <Compile Include="TutorialSlides.cs" />
+    <Compile Include="tutSpeed.cs" />
+    <Compile Include="tutTriggers.cs" />
+    <Compile Include="tutTriggers1.cs" />
+    <Compile Include="TweetComposer.cs" />
+    <Compile Include="TweetContext.cs" />
+    <Compile Include="TweetContextCallback.cs" />
+    <Compile Include="TwitterDemo.cs" />
+    <Compile Include="UltraPrinter.cs" />
+    <Compile Include="UnlockZineTrigger.cs" />
+    <Compile Include="UpdateGUI.cs" />
+    <Compile Include="VibrateForce.cs" />
+    <Compile Include="WallRideRoom.cs" />
+    <Compile Include="WeatherInfo.cs" />
+    <Compile Include="XInput.cs" />
+    <Compile Include="YAnimator.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
