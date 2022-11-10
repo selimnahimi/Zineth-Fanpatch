@@ -425,7 +425,7 @@ public class PhoneInterface : MonoBehaviour
 	}
 
 	// Token: 0x040002A6 RID: 678
-	public static string version = "v0_24";
+	public static string version = "v0.0.1f";
 
 	// Token: 0x040002A7 RID: 679
 	private static PhoneViewController _view_controller;
