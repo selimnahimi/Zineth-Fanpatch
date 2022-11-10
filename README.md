@@ -2,6 +2,9 @@
 
 This is an attempt to revive the [Zineth](https://zinethgame-blog.tumblr.com/) game with occasional updates.
 
+## How to install
+Head to the [latest release](https://github.com/HUNcamper/Zineth-Fanpatch/releases/latest) and follow the installation instructions.
+
 ## How to compile
 Prerequisites:
 - Visual Studio
