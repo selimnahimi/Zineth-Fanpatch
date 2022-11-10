@@ -7,33 +7,6 @@ using UnityEngine;
 // Token: 0x02000096 RID: 150
 public class TwitterDemo : MonoBehaviour
 {
-	static string myLog = "";
-	private string output;
-	private string stack;
-
-	void OnEnable()
-	{
-		Application.RegisterLogCallback(Log);
-		// Application.logMessageReceived += Log;
-	}
-
-	void OnDisable()
-	{
-		// Application.logMessageReceived -= Log;
-	}
-
-	public void Log(string logString, string stackTrace, LogType type)
-	{
-		output = logString;
-		stack = stackTrace;
-		myLog = output + "\n" + myLog;
-		if (myLog.Length > 5000)
-		{
-			myLog = myLog.Substring(0, 4000);
-		}
-	}
-
-
 	// Token: 0x170000CF RID: 207
 	// (get) Token: 0x0600064F RID: 1615 RVA: 0x00028A3C File Offset: 0x00026C3C
 	public static TwitterDemo instance
@@ -196,11 +169,6 @@ public class TwitterDemo : MonoBehaviour
 	// Token: 0x06000662 RID: 1634 RVA: 0x00028BDC File Offset: 0x00026DDC
 	private void OnGUI()
 	{
-		if (Input.GetButton("Debug")) //Do not display in editor ( or you can use the UNITY_EDITOR macro to also disable the rest)
-		{
-			myLog = GUI.TextArea(new Rect(10, 10, Screen.width - 10, Screen.height - 10), myLog);
-		}
-
 		if (!this.draw_gui)
 		{
 			return;
