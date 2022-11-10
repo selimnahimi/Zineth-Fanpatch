@@ -25,5 +25,6 @@ Compilation:
 
 - The game was decompiled using [dnSpy](https://github.com/dnSpy/dnSpy)
 - The assets were extracted using [AssetStudio](https://github.com/Perfare/AssetStudio)
+- The assets were repacked using [UABE](https://github.com/SeriousCache/UABE)
 
 ### Disclaimer: The project is NOT associated in any way with Arcane Kids.
