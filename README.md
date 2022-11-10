@@ -8,8 +8,7 @@ Head to the [latest release](https://github.com/HUNcamper/Zineth-Fanpatch/releas
 
 ## How to compile
 Prerequisites:
-- Visual Studio
-- .NET
+- [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/) or later (and possibly the .NET toolkit for it)
 
 Compilation:
 1. Open the VS solution
