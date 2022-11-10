@@ -6,6 +6,55 @@ using XInputDotNetPure;
 // Token: 0x020000A5 RID: 165
 public class XInput : MonoBehaviour
 {
+	public static Discord.Discord discord;
+	private string oldState = "";
+
+	void OnEnable()
+	{
+		XInput.discord = new Discord.Discord(1040045061456539759, (UInt64)Discord.CreateFlags.Default);
+	}
+
+	void UpdateDiscord()
+	{
+		string state;
+		MissionObject focusMission = MissionController.focus_mission;
+
+		if (focusMission != null)
+		{
+			state = "On Mission: " + focusMission.title;
+		} else
+        {
+			state = "Skating";
+        }
+
+		if (state != oldState)
+        {
+			var activityManager = discord.GetActivityManager();
+			var activity = new Discord.Activity
+			{
+				State = state,
+				Details = "Campaign",
+				Assets =
+			{
+				LargeImage = "zineth",
+				LargeText = "Zineth",
+				// SmallImage = "foo smallImageKey",
+				// SmallText = "foo smallImageText",
+			},
+				Instance = true,
+			};
+
+			activityManager.UpdateActivity(activity, result =>
+			{
+				Debug.Log("Update Activity " + result + "..." + state);
+			});
+
+			oldState = state;
+		}
+
+		discord.RunCallbacks();
+	}
+
 	// Token: 0x060006DC RID: 1756 RVA: 0x0002C660 File Offset: 0x0002A860
 	public static float GetTriggerR()
 	{
@@ -76,6 +125,8 @@ public class XInput : MonoBehaviour
 	// Token: 0x060006E5 RID: 1765 RVA: 0x0002C764 File Offset: 0x0002A964
 	private void Update()
 	{
+		UpdateDiscord();
+
 		if (Application.isWebPlayer)
 		{
 			return;

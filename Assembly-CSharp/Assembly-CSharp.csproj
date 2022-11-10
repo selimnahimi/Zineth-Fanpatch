@@ -64,6 +64,7 @@
     <Compile Include="AccessTokenResponse.cs" />
     <Compile Include="Action.cs" />
     <Compile Include="ActivateTrigger.cs" />
+    <Compile Include="DiscordLib\ActivityManager.cs" />
     <Compile Include="API.cs" />
     <Compile Include="Arrow.cs" />
     <Compile Include="BigHawkBehavior.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Capsule.cs" />
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="CombineChildren.cs" />
+    <Compile Include="DiscordLib\Constants.cs" />
+    <Compile Include="DiscordLib\Core.cs" />
     <Compile Include="Critter.cs" />
     <Compile Include="DArtControl.cs" />
     <Compile Include="DebugPoint.cs" />
@@ -90,6 +93,8 @@
     <Compile Include="HawkZoneOuterScript.cs" />
     <Compile Include="HawkZoneScript.cs" />
     <Compile Include="ImageDownloadHelper.cs" />
+    <Compile Include="DiscordLib\ImageManager.cs" />
+    <Compile Include="DiscordLib\LobbyManager.cs" />
     <Compile Include="MailController.cs" />
     <Compile Include="MeshCombineUtility.cs" />
     <Compile Include="MissionController.cs" />
@@ -226,6 +231,8 @@
     <Compile Include="SpriteSet.cs" />
     <Compile Include="stateEnum.cs" />
     <Compile Include="STATUS.cs" />
+    <Compile Include="DiscordLib\StorageManager.cs" />
+    <Compile Include="DiscordLib\StoreManager.cs" />
     <Compile Include="TakeScreenShot.cs" />
     <Compile Include="TerrainToolkit.cs" />
     <Compile Include="TextureResizer.cs" />
@@ -248,4 +255,7 @@
     <Compile Include="YAnimator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)bin\Release\Assembly-CSharp.dll" "E:\Games\zineth_0_24\zineth_Data\Managed"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
