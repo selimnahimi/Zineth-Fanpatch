@@ -1,7 +1,7 @@
 # Zineth Fanpatch
 ![Zineth Fanpatch](https://raw.githubusercontent.com/HUNcamper/Zineth-Fanpatch/main/ScreenSelector.bmp)
 
-This is an attempt to revive Arcane Kids' [Zineth](https://zinethgame-blog.tumblr.com/) game with occasional updates.
+This is an attempt to revive Arcane Kids' [Zineth](https://zinethgame-blog.tumblr.com/) game with occasional updates. Yes, THAT Zineth.
 
 ## How to install
 Head to the [latest release](https://github.com/HUNcamper/Zineth-Fanpatch/releases/latest) and follow the installation instructions.
