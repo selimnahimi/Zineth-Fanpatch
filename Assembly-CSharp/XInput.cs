@@ -28,19 +28,23 @@ public class XInput : MonoBehaviour
         }
 
 		if (state != oldState)
-        {
+		{
 			var activityManager = discord.GetActivityManager();
 			var activity = new Discord.Activity
 			{
 				State = state,
 				Details = "Campaign",
+				Timestamps =
+				{
+					Start = 0,
+				},
 				Assets =
-			{
-				LargeImage = "zineth",
-				LargeText = "Zineth",
-				// SmallImage = "foo smallImageKey",
-				// SmallText = "foo smallImageText",
-			},
+				{
+					LargeImage = "zineth",
+					LargeText = "Zineth",
+					SmallImage = "foo smallImageKey",
+					SmallText = "foo smallImageText",
+				},
 				Instance = true,
 			};
 
