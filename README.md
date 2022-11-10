@@ -17,6 +17,9 @@ Compilation:
 3. Copy the `Assembly-CSharp/bin/<Build Config>/Assembly-CSharp.dll` file from the project to the game's `zineth_Data/Managed` folder, where `<Build Config>` is either Debug or Release
 4. Done!
 
+## Debugging:
+Debugging the code is currently not possible.
+
 ## Suggestions, contribution
 - Suggestions are welcome as Issues
 - Feel free to contribute using Pull Requests!
