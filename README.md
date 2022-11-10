@@ -1,4 +1,5 @@
-# Zineth-Fanpatch
+# Zineth Fanpatch
+![Zineth Fanpatch](https://raw.githubusercontent.com/HUNcamper/Zineth-Fanpatch/main/ScreenSelector.bmp)
 
 This is an attempt to revive the [Zineth](https://zinethgame-blog.tumblr.com/) game with occasional updates.
 
