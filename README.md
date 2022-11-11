@@ -20,7 +20,7 @@ Compilation:
 Debugging the code is currently not possible.
 
 ## Suggestions, contribution
-- Suggestions are welcome as Issues
+- Suggestions and feedback are welcome as Issues or Discussion posts
 - Feel free to contribute using Pull Requests!
 
 ## Technologies used
