@@ -15,7 +15,7 @@ Prerequisites:
 
 Compilation under Windows 10:
 1. Open the VS solution. If prompted, do not upgrade the .NET version.
-2. On the right side, you should see the Solution Explorer. Here, open `Assembly-CSharp`, right click `References` and `Add`. Proceed by navigating to your Zineth installation. Here, open the `Managed` folder, then select all DLL files except `Assembly-CSharp.dll` and click OK. This makes sure that the project can be built with its third party dependencies.
+2. Navigate to your Zineth installation, and open the `Managed` folder. Copy all DLL files from here. Navigate to this project and paste the files into `Assembly-CSharp/bin/Debug/`
 3. Build `Assembly-CSharp`
 4. Copy the `Assembly-CSharp/bin/<Build Config>/Assembly-CSharp.dll` file from the project to the game's `zineth_Data/Managed` folder, where `<Build Config>` is either Debug or Release
 5. Done!
