@@ -10,6 +10,7 @@ Head to the [latest release](https://github.com/HUNcamper/Zineth-Fanpatch/releas
 Prerequisites:
 - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/) or later (previous versions will likely work too)
 - .NET 3.5 (can be enabled in the Control Panel, please refer to online guides)
+- An instance of Zineth v0_24
 
 Compilation under Windows 10:
 1. Open the VS solution. If prompted, do not upgrade the .NET version.
