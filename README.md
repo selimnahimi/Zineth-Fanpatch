@@ -10,11 +10,12 @@ Head to the [latest release](https://github.com/HUNcamper/Zineth-Fanpatch/releas
 Prerequisites:
 - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/) or later (and possibly the .NET toolkit for it)
 
-Compilation:
-1. Open the VS solution
-2. Build `Assembly-CSharp`
-3. Copy the `Assembly-CSharp/bin/<Build Config>/Assembly-CSharp.dll` file from the project to the game's `zineth_Data/Managed` folder, where `<Build Config>` is either Debug or Release
-4. Done!
+Compilation under Windows 10:
+1. Enable .NET 3.5 in the Control Panel. Follow online guides on how to do this.
+2. Open the VS solution. If prompted, do not update the .NET version.
+3. Build `Assembly-CSharp`
+4. Copy the `Assembly-CSharp/bin/<Build Config>/Assembly-CSharp.dll` file from the project to the game's `zineth_Data/Managed` folder, where `<Build Config>` is either Debug or Release
+5. Done!
 
 ## Debugging:
 Debugging the code is currently not possible.
