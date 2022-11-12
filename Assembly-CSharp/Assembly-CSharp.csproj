@@ -256,6 +256,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(ProjectDir)bin\Release\Assembly-CSharp.dll" "E:\Games\zineth_0_24\zineth_Data\Managed"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
