@@ -44,7 +44,7 @@
       <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.Core.dll</HintPath>
+      <HintPath>bin\Debug\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
       <HintPath>..\..\..\..\Games\zineth_0_24\zineth_Data\Managed\System.Xml.dll</HintPath>
