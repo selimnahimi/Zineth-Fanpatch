@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using UnityEngine;
 using XInputDotNetPure;
 
@@ -15,7 +17,14 @@ public class XInput : MonoBehaviour
 
 	void OnEnable()
 	{
-		Application.RegisterLogCallback(Log);
+		Debug.Log("making spaghetti request pasta");
+        var request = (HttpWebRequest)WebRequest.Create("https://example.com/");
+        var response = (HttpWebResponse)request.GetResponse();
+        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+        Debug.Log("Made HttpWebRequest, tasty pasta. Response:");
+        Debug.Log(responseString);
+
+        Application.RegisterLogCallback(Log);
 		XInput.discord = new Discord.Discord(1040045061456539759, (UInt64)Discord.CreateFlags.Default);
 	}
 

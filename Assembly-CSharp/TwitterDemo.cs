@@ -265,7 +265,7 @@ public class TwitterDemo : MonoBehaviour
 	// Token: 0x06000663 RID: 1635 RVA: 0x00028FF0 File Offset: 0x000271F0
 	public void GetRequestToken()
 	{
-		base.StartCoroutine(API.GetRequestToken(this.CONSUMER_KEY, this.CONSUMER_SECRET, new RequestTokenCallback(this.OnRequestTokenCallback)));
+        base.StartCoroutine(API.GetRequestToken(this.CONSUMER_KEY, this.CONSUMER_SECRET, new RequestTokenCallback(this.OnRequestTokenCallback)));
 	}
 
 	// Token: 0x06000664 RID: 1636 RVA: 0x00029024 File Offset: 0x00027224
@@ -276,9 +276,22 @@ public class TwitterDemo : MonoBehaviour
 
 	// Token: 0x06000665 RID: 1637 RVA: 0x00029034 File Offset: 0x00027234
 	public void GetAccessToken(string pin)
-	{
-		base.StartCoroutine(API.GetAccessToken(this.CONSUMER_KEY, this.CONSUMER_SECRET, this.m_RequestTokenResponse.Token, pin, new AccessTokenCallback(this.OnAccessTokenCallback)));
-	}
+    {
+		try
+		{
+			Debug.Log("Trying to get access token using PIN: " + pin);
+			Debug.Log("CONSUMER_KEY: " + this.CONSUMER_KEY);
+            Debug.Log("CONSUMER_KEY: " + this.CONSUMER_SECRET);
+			Debug.Log("Request token: " + this.m_RequestTokenResponse.Token);
+            base.StartCoroutine(API.GetAccessToken(this.CONSUMER_KEY, this.CONSUMER_SECRET, this.m_RequestTokenResponse.Token, pin, new AccessTokenCallback(this.OnAccessTokenCallback)));
+        }
+		catch(Exception e)
+		{
+			Debug.Log("Something fucked up real bad!");
+			Debug.Log(e.Message);
+		}
+
+    }
 
 	// Token: 0x06000666 RID: 1638 RVA: 0x00029074 File Offset: 0x00027274
 	public void GetAccessToken(TwitterDemo.TwitterUser user)

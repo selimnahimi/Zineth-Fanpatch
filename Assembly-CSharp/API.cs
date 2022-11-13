@@ -2,8 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Security;
+using System.Security.Authentication;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using HTTP;
@@ -14,22 +19,80 @@ namespace Twitter
 	// Token: 0x02000094 RID: 148
 	public class API
 	{
-		// Token: 0x06000625 RID: 1573 RVA: 0x000276B8 File Offset: 0x000258B8
-		public static IEnumerator GetRequestToken(string consumerKey, string consumerSecret, RequestTokenCallback callback)
+        public static bool MyRemoteCertificateValidationCallback(System.Object sender,
+    X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            bool isOk = true;
+            // If there are errors in the certificate chain,
+            // look at each error to determine the cause.
+            if (sslPolicyErrors != SslPolicyErrors.None)
+            {
+                for (int i = 0; i < chain.ChainStatus.Length; i++)
+                {
+                    if (chain.ChainStatus[i].Status == X509ChainStatusFlags.RevocationStatusUnknown)
+                    {
+                        continue;
+                    }
+                    chain.ChainPolicy.RevocationFlag = X509RevocationFlag.EntireChain;
+                    chain.ChainPolicy.RevocationMode = X509RevocationMode.Online;
+                    chain.ChainPolicy.UrlRetrievalTimeout = new TimeSpan(0, 1, 0);
+                    chain.ChainPolicy.VerificationFlags = X509VerificationFlags.AllFlags;
+                    bool chainIsValid = chain.Build((X509Certificate2)certificate);
+                    if (!chainIsValid)
+                    {
+                        isOk = false;
+                        break;
+                    }
+                }
+            }
+            return isOk;
+        }
+
+        // Token: 0x06000625 RID: 1573 RVA: 0x000276B8 File Offset: 0x000258B8
+        public static IEnumerator GetRequestToken(string consumerKey, string consumerSecret, RequestTokenCallback callback)
 		{
-			WWW web = API.WWWRequestToken(consumerKey, consumerSecret);
-			yield return web;
-			if (!string.IsNullOrEmpty(web.error))
+			// WWW web = API.WWWRequestToken(consumerKey, consumerSecret);
+
+			/*byte[] postData = new byte[]
+            {
+                0
+            };
+            Hashtable hashtable = new Hashtable();
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            API.AddDefaultOAuthParams(dictionary, consumerKey, consumerSecret);
+            dictionary.Add("oauth_callback", "oob");
+            hashtable["Authorization"] = API.GetFinalOAuthHeader("POST", API.RequestTokenURL, dictionary);
+            return new WWW(API.RequestTokenURL, postData, hashtable);*/
+			// ServicePointManager.ServerCertificateValidationCallback = MyRemoteCertificateValidationCallback;
+			// ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+
+			// SecurityProtocolType Tls12 = (SecurityProtocolType)3072;
+			// ServicePointManager.SecurityProtocol = Tls12;
+
+			SecurityProtocolType Tls12 = (SecurityProtocolType)(SslProtocols)0x00000C00;
+            System.Net.ServicePointManager.SecurityProtocol = Tls12;
+
+            var webRequest = (HttpWebRequest)WebRequest.Create(API.RequestTokenURL);
+            webRequest.Method = "POST";
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            API.AddDefaultOAuthParams(dictionary, consumerKey, consumerSecret);
+            dictionary.Add("oauth_callback", "oob");
+            webRequest.Headers["Authorization"] = API.GetFinalOAuthHeader("POST", API.RequestTokenURL, dictionary);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+
+            yield return webResponse;
+			if (webResponse.StatusCode != HttpStatusCode.OK)
 			{
-				Debug.Log(string.Format("GetRequestToken - failed. error : {0}", web.error));
+				Debug.Log(string.Format("GetRequestToken - failed. error : {0}", webResponse.StatusCode));
 				callback(false, null);
 			}
 			else
-			{
-				RequestTokenResponse response = new RequestTokenResponse
+            {
+                var responseString = new StreamReader(webResponse.GetResponseStream()).ReadToEnd();
+                RequestTokenResponse response = new RequestTokenResponse
 				{
-					Token = Regex.Match(web.text, "oauth_token=([^&]+)").Groups[1].Value,
-					TokenSecret = Regex.Match(web.text, "oauth_token_secret=([^&]+)").Groups[1].Value
+					Token = Regex.Match(responseString, "oauth_token=([^&]+)").Groups[1].Value,
+					TokenSecret = Regex.Match(responseString, "oauth_token_secret=([^&]+)").Groups[1].Value
 				};
 				if (!string.IsNullOrEmpty(response.Token) && !string.IsNullOrEmpty(response.TokenSecret))
 				{
@@ -37,7 +100,7 @@ namespace Twitter
 				}
 				else
 				{
-					Debug.Log(string.Format("GetRequestToken - failed. response : {0}", web.text));
+					Debug.Log(string.Format("GetRequestToken - failed. response : {0}", responseString));
 					callback(false, null);
 				}
 			}
@@ -53,6 +116,8 @@ namespace Twitter
 		// Token: 0x06000627 RID: 1575 RVA: 0x0002770C File Offset: 0x0002590C
 		public static IEnumerator GetAccessToken(string consumerKey, string consumerSecret, string requestToken, string pin, AccessTokenCallback callback)
 		{
+			MonoBehaviour.print("APPLEPIE");
+            Debug.Log("REACHED GETACCESSTOKEN!!!!!!!!!!!!!");
 			WWW web = API.WWWAccessToken(consumerKey, consumerSecret, requestToken, pin);
 			yield return web;
 			if (!string.IsNullOrEmpty(web.error))
@@ -80,7 +145,7 @@ namespace Twitter
 				}
 			}
 			yield break;
-		}
+        }
 
 		// Token: 0x06000628 RID: 1576 RVA: 0x00027768 File Offset: 0x00025968
 		private static WWW WWWRequestToken(string consumerKey, string consumerSecret)
