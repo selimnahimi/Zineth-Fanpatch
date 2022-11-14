@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Security;
+using System.Reflection;
 using System.Security.Authentication;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -69,30 +70,49 @@ namespace Twitter
 			// SecurityProtocolType Tls12 = (SecurityProtocolType)3072;
 			// ServicePointManager.SecurityProtocol = Tls12;
 
-			SecurityProtocolType Tls12 = (SecurityProtocolType)(SslProtocols)0x00000C00;
-            System.Net.ServicePointManager.SecurityProtocol = Tls12;
+			// SecurityProtocolType Tls12 = (SecurityProtocolType)(SslProtocols)0x00000C00;
+			// System.Net.ServicePointManager.SecurityProtocol = Tls12;
 
-            var webRequest = (HttpWebRequest)WebRequest.Create(API.RequestTokenURL);
-            webRequest.Method = "POST";
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             API.AddDefaultOAuthParams(dictionary, consumerKey, consumerSecret);
             dictionary.Add("oauth_callback", "oob");
-            webRequest.Headers["Authorization"] = API.GetFinalOAuthHeader("POST", API.RequestTokenURL, dictionary);
-            var webResponse = (HttpWebResponse)webRequest.GetResponse();
 
-            yield return webResponse;
-			if (webResponse.StatusCode != HttpStatusCode.OK)
+			string url = API.RequestTokenURL;
+			string sendMethod = "POST";
+			string headers = API.GetFinalOAuthHeader(sendMethod, API.RequestTokenURL, dictionary);
+
+			// NETModule.HTTPSModule httpsModule = new NETModule.HTTPSModule();
+			// string responseString = httpsModule.SendRequest(url, headers);
+
+			Debug.Log("GETTING REQUEST TOKEN BRUH !!!!!!!!!!!!!!");
+
+			object[] args = new object[] { url, sendMethod, headers };
+
+			var assembly = Assembly.LoadFrom("NETModule.dll");
+			Debug.Log("Assembly loaded.");
+			var type = assembly.GetType("NETModule.HTTPSModule");
+			Debug.Log("Type loaded.");
+			var method = type.GetMethod("SendRequest");
+			Debug.Log("Method loaded.");
+			var res = method.Invoke(null, args);
+			Debug.Log("Method INVOKED !!! LETS GOOOOO");
+
+			Debug.Log((string)res);
+
+			yield return res;
+			//if (webResponse.StatusCode != HttpStatusCode.OK)
+			if (res == null)
 			{
-				Debug.Log(string.Format("GetRequestToken - failed. error : {0}", webResponse.StatusCode));
+				Debug.Log(string.Format("GetRequestToken - failed. error : {0}", "unknown error"));
 				callback(false, null);
 			}
 			else
             {
-                var responseString = new StreamReader(webResponse.GetResponseStream()).ReadToEnd();
+                //var responseString = new StreamReader(webResponse.GetResponseStream()).ReadToEnd();
                 RequestTokenResponse response = new RequestTokenResponse
 				{
-					Token = Regex.Match(responseString, "oauth_token=([^&]+)").Groups[1].Value,
-					TokenSecret = Regex.Match(responseString, "oauth_token_secret=([^&]+)").Groups[1].Value
+					Token = Regex.Match((string)res, "oauth_token=([^&]+)").Groups[1].Value,
+					TokenSecret = Regex.Match((string)res, "oauth_token_secret=([^&]+)").Groups[1].Value
 				};
 				if (!string.IsNullOrEmpty(response.Token) && !string.IsNullOrEmpty(response.TokenSecret))
 				{
@@ -100,7 +120,7 @@ namespace Twitter
 				}
 				else
 				{
-					Debug.Log(string.Format("GetRequestToken - failed. response : {0}", responseString));
+					Debug.Log(string.Format("GetRequestToken - failed. response : {0}", (string)res));
 					callback(false, null);
 				}
 			}
