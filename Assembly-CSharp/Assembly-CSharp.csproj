@@ -96,6 +96,7 @@
     <Compile Include="ImageDownloadHelper.cs" />
     <Compile Include="DiscordLib\ImageManager.cs" />
     <Compile Include="DiscordLib\LobbyManager.cs" />
+    <Compile Include="Interfaces\HTTPSModule.cs" />
     <Compile Include="MailController.cs" />
     <Compile Include="MeshCombineUtility.cs" />
     <Compile Include="MissionController.cs" />
